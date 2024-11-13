@@ -3,7 +3,7 @@ import { baseUrl, postRequest } from "../utils/services";
 
 export const AuthContext = createContext();
 
-export const AuthContextProvider =({ children})=>{
+export const AuthContextProvider =({children})=>{
     const [user, setUser] = useState(null);
     const [registerError, setRegisterError] = useState(null);
     const [isRegisterLoading, setIsRegisterLoading] = useState(false);
@@ -19,7 +19,7 @@ export const AuthContextProvider =({ children})=>{
         email:"",
         password:"",
     })
-    console.log("User",user);
+    
     console.log("loginInfo",loginInfo);
 
     useEffect(()=>{

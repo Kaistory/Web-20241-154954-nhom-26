@@ -90,29 +90,4 @@ const getUser = async(req, res) =>{
     }
 }
 
-const  updateUser = async(req, res) =>{
-    const userId = req.params.userId;
-    const {name, email, password} = req.body; // Data to update from the request body
-    const updateData = {name, email, password};
-    const user = await userModel.findById(userId);
-    if(user.password != updateData.password){
-        const salt = await bcrypt.genSalt(10);
-        updateData.password = await bcrypt.hash(updateData.password, salt);
-    }
-    try {
-      const updatedUser  = await userModel.findByIdAndUpdate(userId, updateData, { new: true, runValidators: true });
-      if (updatedUser) {
-        return res.status(200).json({
-          message: "User updated successfully",
-          user: updatedUser,
-        });
-      } else {
-        return res.status(404).json({ message: "User  not found" });
-      }
-    } catch (error) {
-      console.error("Error updating user:", error);
-      return res.status(500).json({ message: "Internal server error" });
-    }
-}
-
-module.exports = {registerUser, loginUser, findUser,getUser, updateUser};
+module.exports = {registerUser, loginUser, findUser,getUser};
