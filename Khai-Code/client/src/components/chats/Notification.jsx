@@ -41,7 +41,8 @@ const Notification = () => {
             <div className="notifications-header">
                 <h3>Notifications</h3>
                 <div className="mark-as-read" onClick={() => markAllNotificationsAdRead(notifications)}>Mark all as read</div>
-                {modifiedNotifications?.length === 0 ? <span className="notification">No notification yet...</span> : null}
+            </div>
+            {modifiedNotifications?.length === 0 ? <span className="notification">No notification yet...</span> : null}
                 {modifiedNotifications && modifiedNotifications.map((n, index) => {
                     return (<div key={index} className={n.isRead ? "notification" : "notification not-read"}
                         onClick={() =>{
@@ -52,7 +53,6 @@ const Notification = () => {
                         <span className="notification-time">{moment(n.date).calendar()}</span>
                     </div>)
                 })}
-            </div>
         </div>) : null
         }
     </div> );
