@@ -44,7 +44,6 @@ const ChatBox = () => {
                     <span className="message-footer">{moment(message.createdAt).calendar()}</span>
                 </Stack>))
             }
-
         </Stack>
         <Stack direction="horizontal" gap ={3} className="chat-input flex-grow-0">
                 <InputEmoji value={textMessage} onChange={setTextMessage} fontFamily="nunito" borderColor="rgba(72,112,223,0.2)"/>

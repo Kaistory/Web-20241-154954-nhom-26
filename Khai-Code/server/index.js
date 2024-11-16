@@ -6,6 +6,7 @@ const chatRoute = require("./Routes/chatRoute")
 const messageRoute = require("./Routes/messageRoute");
 const {Server} = require("socket.io")
 const app = express();
+const {blackbox} = require('@shuddho11288/blackboxai-api');
 require("dotenv").config();
 
 app.use(express.json());
@@ -14,7 +15,32 @@ app.use("/api/users",userRoute);
 app.use("/api/chats", chatRoute);
 app.use("/api/messages", messageRoute);
 
+function removeFirstLine(inputString) {
+  const lines = inputString.split('\n');
+  if (lines.length > 0) {
+      lines.shift();
+  }
+  return lines.join('\n');
+}
+
+
+//Chatbot
+const getBotResponse = async (message) => {
+  let answer = "";
+  try {
+    const answera = await blackbox(message).then(data =>{
+        answer = data;
+    });
+} catch (error) {
+    console.error("Error fetching response:", error);
+}
+    return answer;
+};
+
+
+
 // CRUD
+
 
 app.get("/", (req, res) =>{
     res.send("Welcome our chat app APIs ..");
@@ -39,7 +65,7 @@ mongoose.connect(uri,{
 
   io.on("connection", (socket) => {
     
-    // console.log("hoaquarson", socket.id)
+    
     // listen to a connection
     socket.on("addNewUser", (userId) =>{
      
@@ -66,6 +92,12 @@ mongoose.connect(uri,{
         });
       }
     })
+    //chatbot
+    socket.on("chatbot-message", async (msg) => {
+      console.log('Message received: ' + msg);
+      const botResponse = await getBotResponse(msg);
+      socket.emit('chatbot-message', removeFirstLine(botResponse)); // Send response back to the client
+  });
   
     socket.on("disconnect",() =>{
       

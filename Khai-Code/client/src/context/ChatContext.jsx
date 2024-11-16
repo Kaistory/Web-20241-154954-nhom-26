@@ -27,7 +27,6 @@ export const ChatContextProvider = ({children, user}) =>{
     useEffect(() =>{
         const newSocket = io(import.meta.env.VITE_SOCKET_URL);
         setSocket(newSocket);
-
         return() =>{
             newSocket.disconnect();
         }
@@ -257,6 +256,7 @@ export const ChatContextProvider = ({children, user}) =>{
         markAllNotificationsAdRead,
         markNotificationsAdRead,
         markThisUserNotificationsAsRead,
+        socket
     }}>{children}
     </ChatContext.Provider>
 }
