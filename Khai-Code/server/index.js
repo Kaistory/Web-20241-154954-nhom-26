@@ -94,10 +94,11 @@ mongoose.connect(uri,{
     })
     //chatbot
     socket.on("chatbot-message", async (msg) => {
-      console.log('Message received: ' + msg);
+      // console.log('Message received: ' + msg);
       const botResponse = await getBotResponse(msg);
       socket.emit('chatbot-message', removeFirstLine(botResponse)); // Send response back to the client
-  });
+      
+    });
   
     socket.on("disconnect",() =>{
       

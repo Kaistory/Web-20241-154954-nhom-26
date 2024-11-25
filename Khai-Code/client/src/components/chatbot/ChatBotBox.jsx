@@ -12,7 +12,7 @@ const ChatBotBox = () => {
     const scroll = useRef();
 
     useEffect(() => {
-        scroll.current?.scrollIntoView({behaior: "smooth"});
+        scroll.current?.scrollIntoView({behavior: "smooth"});
       // Listen for incoming messages from the server
       if(socket === null) return;
       

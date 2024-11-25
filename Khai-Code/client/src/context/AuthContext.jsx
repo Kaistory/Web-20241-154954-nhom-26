@@ -20,7 +20,6 @@ export const AuthContextProvider =({children})=>{
         password:"",
     })
     
-    console.log("loginInfo",loginInfo);
 
     useEffect(()=>{
         const user = localStorage.getItem("User");
@@ -74,6 +73,7 @@ export const AuthContextProvider =({children})=>{
     return (
         <AuthContext.Provider value={{
             user,
+            setUser,
             registerInfo,
             updateRegisterInfo,
             registerUser,
