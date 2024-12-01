@@ -1,4 +1,5 @@
-export const baseUrl = "http://localhost:8000/api"
+// export const baseUrl = "http://localhost:8000/api"
+export const baseUrl = "https://web-20241-154954-nhom-26.onrender.com/api"
 
 export const postRequest = async(url, body)=>{
     const response = await fetch(url, {
