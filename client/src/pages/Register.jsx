@@ -16,7 +16,7 @@ const Register = () => {
                 }}>
                     <Col xs={6} className="register-col">
                         <Stack gap={3} className="register-stack">
-                            <img src="/Img/P2P.jpg" alt="Discord Logo" className="logo" />
+                            {/* <img src="/Img/P2P.jpg" alt="Discord Logo" className="logo" /> */}
                             <h2 style={{ color: "#ffffff" }}>Register</h2>
 
                             <Form.Control

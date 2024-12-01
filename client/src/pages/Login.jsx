@@ -17,7 +17,7 @@ const Login = () => {
             }}>
                 <Col xs={6} className="login-col">
                     <Stack gap={3} className="login-stack">
-                        <img src="/Img/P2P.jpg" alt="Discord Logo" className="logo" /> 
+                        {/* <img src="/Img/P2P.jpg" alt="Discord Logo" className="logo" />  */}
                         <h2 style={{ color: "#ffffff" }}>Login</h2>
                     
                         <Form.Control 
