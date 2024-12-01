@@ -3,7 +3,7 @@ import { Alert, Button, Form, Row, Col, Stack } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
-    const { registerUser , registerError, registerInfo, updateRegisterInfo, isRegisterLoading } = useContext(AuthContext);
+    const { registerInfo, updateRegisterInfo, registerUser, registerError,isRegisterLoading } = useContext(AuthContext);
 
     return (
         <>
@@ -18,7 +18,14 @@ const Register = () => {
                         <Stack gap={3} className="register-stack">
                             {/* <img src="/Img/P2P.jpg" alt="Discord Logo" className="logo" /> */}
                             <h2 style={{ color: "#ffffff" }}>Register</h2>
-
+                            <Form.Control
+                                type="text"
+                                placeholder="Username"
+                                onChange={(e) => updateRegisterInfo({
+                                    ...registerInfo, name: e.target.value
+                                })}
+                                className="register-input"
+                            />
                             <Form.Control
                                 type="email"
                                 placeholder="Email"
@@ -28,26 +35,10 @@ const Register = () => {
                                 className="register-input"
                             />
                             <Form.Control
-                                type="username"
-                                placeholder="Username"
-                                onChange={(e) => updateRegisterInfo({
-                                    ...registerInfo, username: e.target.value
-                                })}
-                                className="register-input"
-                            />
-                            <Form.Control
                                 type="password"
                                 placeholder="Password"
                                 onChange={(e) => updateRegisterInfo({
                                     ...registerInfo, password: e.target.value
-                                })}
-                                className="register-input"
-                            />
-                            <Form.Control
-                                type="confirmPassword"
-                                placeholder="Confirm Password"
-                                onChange={(e) => updateRegisterInfo({
-                                    ...registerInfo, confirmPassword: e.target.value
                                 })}
                                 className="register-input"
                             />
