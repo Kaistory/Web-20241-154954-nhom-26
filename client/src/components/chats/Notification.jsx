@@ -39,10 +39,10 @@ const Notification = () => {
         {isOpen ? (
             <div className="notifications-box">
             <div className="notifications-header">
-                <h3>Notifications</h3>
-                <div className="mark-as-read" onClick={() => markAllNotificationsAdRead(notifications)}>Mark all as read</div>
+                <h3>Thông báo</h3>
+                <div className="mark-as-read" onClick={() => markAllNotificationsAdRead(notifications)}>Đánh dấu tất cả </div>
             </div>
-            {modifiedNotifications?.length === 0 ? <span className="notification">No notification yet...</span> : null}
+            {modifiedNotifications?.length === 0 ? <span className="notification">Chưa có thông báo nào...</span> : null}
                 {modifiedNotifications && modifiedNotifications.map((n, index) => {
                     return (<div key={index} className={n.isRead ? "notification" : "notification not-read"}
                         onClick={() =>{

@@ -18,7 +18,7 @@ const Login = () => {
                 <Col xs={6} className="login-col">
                     <Stack gap={3} className="login-stack">
                         {/* <img src="/Img/P2P.jpg" alt="Discord Logo" className="logo" />  */}
-                        <h2 style={{ color: "#ffffff" }}>Login</h2>
+                        <h2 style={{ color: "#ffffff" }}>Đăng Nhập</h2>
                     
                         <Form.Control 
                             type="email" 
@@ -30,7 +30,7 @@ const Login = () => {
                         />
                         <Form.Control 
                             type="password" 
-                            placeholder="Password" 
+                            placeholder="Mật khẩu" 
                             onChange={(e) => updateLoginInfo({
                                 ...loginInfo, password: e.target.value
                             })} 

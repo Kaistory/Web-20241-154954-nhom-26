@@ -19,13 +19,13 @@ const ChatBox = () => {
     },[messages])
     if(!recipientUser) return(
         <p style={{textAlign: "center",width:"100%"}}>
-            No conversation selected yet...
+            Chưa có đoạn nhắn tin...
         </p>
     )
 
     if(isMessagesLoading) return(
         <p style={{textAlign: "center",width:"100%"}}>
-            Loading Chat ...
+            Đang tải tin nhắn ...
         </p>
     )
 

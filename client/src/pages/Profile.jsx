@@ -43,7 +43,7 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            <h2>Edit Profile</h2>
+            <h2>Sửa thông tin cá nhân</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formName">
                     <Form.Label>Name</Form.Label>
@@ -52,7 +52,7 @@ const Profile = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Enter your name"
+                        placeholder="Nhập tên"
                     />
                 </Form.Group>
                 <Form.Group controlId="formEmail">
@@ -62,21 +62,21 @@ const Profile = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="Enter your email"
+                        placeholder="Nhập email"
                     />
                 </Form.Group>
                 <Form.Group controlId="formPassword">
-                    <Form.Label>New Password</Form.Label>
+                    <Form.Label>Mật khẩu mới</Form.Label>
                     <Form.Control
                         type="password"
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
-                        placeholder="Enter new password"
+                        placeholder="Nhập mật khẩu mới"
                     />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Update Profile
+                    Cập nhật thông tin
                 </Button>
             </Form>
             {error && <Alert variant="danger">{error}</Alert>} {/* Hiển thị thông báo lỗi nếu có */}
